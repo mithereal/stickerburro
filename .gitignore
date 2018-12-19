@@ -1,23 +1,39 @@
-*.annot
-*.cmo
-*.cma
-*.cmi
-*.a
-*.o
-*.cmx
-*.cmxs
-*.cmxa
+# Numerous always-ignore extensions
+*.diff
+*.err
+*.orig
+*.log
+*.rej
+*.swo
+*.swp
+*.vi
+*~
+*.sass-cache
+*.bs.js
 
-# ocamlbuild working directory
-_build/
+# OS or Editor folders
+.DS_Store
+.cache
+.project
+.settings
+.tmproj
+nbproject
+Thumbs.db
 
-# ocamlbuild targets
-*.byte
-*.native
+# NPM packages folder.
+node_modules/
 
-# oasis generated files
-setup.data
-setup.log
+#  folder for temporary files.
+tmp/
 
-# Merlin configuring file for Vim and Emacs
+#  output folder.
+public/
+lib/*
+
+# Ignore asset build reasonml
+app/build/*
+
+
+# Bower stuff.
+bower_components/
 .merlin
