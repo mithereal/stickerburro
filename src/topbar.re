@@ -12,7 +12,7 @@ let make = (_children) => {
     <nav>
     <ul>
     <li>
-    (ReasonReact.string(Stickers))
+    (ReasonReact.string("Stickers"))
     </li>
     </ul>
     </nav>
