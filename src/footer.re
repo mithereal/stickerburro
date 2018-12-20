@@ -9,14 +9,14 @@ let make = (_children) => {
 
     <ul>
 
-    <Li id="About" text="About" class="" />
-    <Li id="Blog" text="Blog" class="" />
-    <Li id="Uses" text="Uses" class="" />
-    <Li id="Templates" text="Templates" class="" />
-    <Li id="Gift cards" text="Gift cards" class="" />
-    <Li id="FAQs" text="FAQs" class="" />
-    <Li id="Returns" text="Returns" class="" />
-    <Li id="Contact" text="Contact" class="" />
+    <Li i="About" text="About" c="" />
+    <Li i="Blog" text="Blog" c="" />
+    <Li i="Uses" text="Uses" c="" />
+    <Li i="Templates" text="Templates" c="" />
+    <Li i="Gift cards" text="Gift cards" c="" />
+    <Li i="FAQs" text="FAQs" c="" />
+    <Li i="Returns" text="Returns" c="" />
+    <Li i="Contact" text="Contact" c="" />
 
     </ul>
 

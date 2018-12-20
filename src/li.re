@@ -1,9 +1,9 @@
 let component = ReasonReact.statelessComponent("Login");
 
-let make = (~id, ~class, ~text, _children) => {
+let make = (~i, ~c, ~text, _children) => {
   ...component,
   render: _self =>
-    <li id= id className= class>
+    <li id= i className= c>
     (ReasonReact.string(text))
     </li>
 };

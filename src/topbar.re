@@ -14,22 +14,24 @@ let make = (_children) => {
     <nav className="Category-menu">
     <ul>
 
-    <Li id="Stickers" text="Stickers" class="" />
-    <Li id="Labels" text="Labels" class="" />
-    <Li id="Magnets" text="Magnets" class="" />
-    <Li id="Buttons" text="Buttons" class="" />
-    <Li id="Packaging" text="Packaging" class="" />
+    <Li i="Stickers" text="Stickers" c="" />
+    <Li i="Labels" text="Labels" c="" />
+    <Li i="Magnets" text="Magnets" c="" />
+    <Li i="Buttons" text="Buttons" c="" />
+    <Li i="Packaging" text="Packaging" c="" />
 
     </ul>
     </nav>
 
     <div className="User-info-container">
+    <nav>
     <ul>
 
-     <Li id="Login" text="Login" class="" />
-     <Li id="Sign-up" text="Sign-up" class="" />
+     <Li i="Login" text="Login" c="" />
+     <Li i="Sign-up" text="Sign-up" c="" />
 
     </ul>
+    </nav>
 
     </div>
 
