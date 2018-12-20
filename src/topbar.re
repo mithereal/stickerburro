@@ -9,7 +9,7 @@ let make = (_children) => {
     <div className="Logo-container">
     <img src=logo className="App-logo" alt="logo" />
     </div>
-    <nav>
+    <nav className="Category-menu">
     <ul>
     <li>
     (ReasonReact.string("Stickers"))
