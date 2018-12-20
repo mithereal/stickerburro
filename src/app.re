@@ -7,6 +7,7 @@ let make = (_children) => {
   render: _self =>
     <div className="App">
       <Topbar />
+      <Page />
       <Footer />
     </div>,
 };
