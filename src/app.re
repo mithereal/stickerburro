@@ -9,5 +9,5 @@ let make = (_children) => {
       <Topbar />
       <Page />
       <Footer />
-    </div>,
+    </div>
 };
