@@ -14,6 +14,18 @@ let make = (_children) => {
     <li>
     (ReasonReact.string("Stickers"))
     </li>
+    <li>
+    (ReasonReact.string("Labels"))
+    </li>
+    <li>
+    (ReasonReact.string("Magnets"))
+    </li>
+    <li>
+    (ReasonReact.string("Buttons"))
+    </li>
+    <li>
+    (ReasonReact.string("Packaging"))
+    </li>
     </ul>
     </nav>
     </div>
