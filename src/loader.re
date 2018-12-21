@@ -3,6 +3,7 @@
 type action =
  | INIT
  | FAIL
+ | SUCCESS
 
 type state =
  | ERROR
@@ -15,8 +16,10 @@ type state =
           LOADING,
           (
           )
+          self.send(SUCCESS)
           )
      | FAIL => ReasonReact.Update(ERROR)
+     | SUCCESS => ReasonReact.Update(LOADED)
    };
 
 let component = ReasonReact.reducerComponent("Loader");

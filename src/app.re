@@ -1,42 +1,46 @@
 type action =
- | FETCHCATEGORY
- | FAILEDTOFETCH
+ | LOADCATEGORY
+ | LOADPRODUCTS(category)
 
-type state =
- | LOADING
- | ERROR
- | LOADED
+type state =  {
+categories: list(category),
+products: list(product)
+};
+
+type category = {
+name: string,
+url: string
+}
+
+type product = {
+name: string,
+url: string,
+description: string,
+image: string,
+}
+
 
   let reducer = (action, _state) =>
    switch(action) {
-     | FETCHCATEGORY => ReasonReact.UpdateWithSideEffects(
-          LOADING,
-          (
+     | LOADCATEGORY => ReasonReact.UpdateWithSideEffects(
+
           )
-          )
+          category = nil;
+          self.send(LOADPRODUCTS(category))
+     | LOADPRODUCTS(category) => products = [];
+                                 ReasonReact.Update(products: products)
    };
 
 let component = ReasonReact.reducerComponent("App");
 
-let make = (_children) => {
+let make = (~categories, _children) => {
   ...component,
-  initialState: () => LOADING,
+  initialState: () => { categories: categories, products: [] },
   reducer,
-  didMount: self => {
-
-  },
   render: self =>
-  switch(self.state){
-    | ERROR => <div className="error"> ( ReasonReact.string("An Error Occured !!") ) </div>
-    | LOADING => <div className="app">
-                 <Menubar ~categories= nil />
-                 <Page products = nil />
-                 <Footer />
-                 </div>
-    | LOADED => <div className="app">
-                          <Menubar ~categories= Data.categories />
-                          <Page products = nil />
-                          <Footer />
-                        </div>
+    <div className="app">
+    <Menubar categories= state.categories />
+    <Page products = state.products />
+    <Footer />
+    </div>
 
-};
