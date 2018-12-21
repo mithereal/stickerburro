@@ -8,5 +8,6 @@ let make = (~data, _children) => {
     <div className="product-description">
     (ReasonReact.string(data.description))
     </div>
+ 
     </div>
 };

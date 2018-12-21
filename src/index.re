@@ -1,3 +1,4 @@
+[%bs.raw {|require('./mini.min.css')|}];
 [%bs.raw {|require('./index.css')|}];
 
 [@bs.module "./serviceWorker"]

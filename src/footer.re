@@ -3,9 +3,9 @@ let component = ReasonReact.statelessComponent("Footer");
 let make = (_children) => {
   ...component,
   render: _self =>
-    <div className="Footer">
+    <footer className="sticky">
 
-    <nav className="Footer-menu">
+    <nav className="footer-menu">
 
     <ul>
 
@@ -22,5 +22,5 @@ let make = (_children) => {
 
     </nav>
 
-    </div>
+    </footer>
 };
