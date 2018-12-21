@@ -3,10 +3,10 @@ let component = ReasonReact.statelessComponent("Video");
 let make = (_children) => {
   ...component,
   render: _self =>
-    <div className="Video">
-     <div className="Video-block">
+    <div className="video">
+     <div className="video-block">
      </div>
-     <div className="Video-text">
+     <div className="video-text">
      </div>
      <Partners />
     </div>

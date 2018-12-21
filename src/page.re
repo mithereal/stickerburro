@@ -4,6 +4,7 @@ let make = (~products, _children) => {
   ...component,
   render: _self =>
   <div id="page" className="page">
+
   (
 
   switch (products) {
