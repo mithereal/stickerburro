@@ -1,9 +1,9 @@
 let categories = Js.Dict.empty();
-Js.Dict.set(topmenu, "Stickers", "/stickers");
-Js.Dict.set(topmenu, "Labels", "/labels");
-Js.Dict.set(topmenu, "Magnets", "/magnets");
-Js.Dict.set(topmenu, "Buttons", "/buttons");
-Js.Dict.set(topmenu, "Packaging", "/packaging");
+Js.Dict.set(categories, "Stickers", "/stickers");
+Js.Dict.set(categories, "Labels", "/labels");
+Js.Dict.set(categories, "Magnets", "/magnets");
+Js.Dict.set(categories, "Buttons", "/buttons");
+Js.Dict.set(categories, "Packaging", "/packaging");
 
 let footermenu = Js.Dict.empty();
 Js.Dict.set(footermenu, "About", "/about");
