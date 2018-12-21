@@ -6,7 +6,7 @@ let make = (_children) => {
   ...component,
   render: _self =>
     <div className="App">
-      <Menubar usermenu= Data.usermenu, ~categories= Data.topmenu />
+      <Menubar ~categories= Data.topmenu />
       <Page />
       <Footer />
     </div>

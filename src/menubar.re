@@ -13,9 +13,13 @@ let make = (~usermenu, ~categories, _children) => {
 
    <Menu name="category-menu", ~items=usermenu />
 
-    <div className="user-info-container">
 
-    <Menu name="user-info", ~items=usermenu />
+    <div className="user-menu">
+    <nav id="user-menu" title="user-menu">
+    <ul>
+
+    </ul>
+    </nav>
 
     </div>
 
