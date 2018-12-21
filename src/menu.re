@@ -5,7 +5,7 @@ let make = (~name, ~items, _children) => {
   render: _self =>
   <nav id=name title=name>
     <ul>
-    <Menuitem name="test" styles= "test" />
+    <Menuitem data= data />
     </ul>
   </nav>
 };

@@ -1,9 +1,9 @@
 let component = ReasonReact.statelessComponent("Menu Item");
 
-let make = (~name, ~styles, ~text, _children) => {
+let make = (~data, _children) => {
   ...component,
   render: _self =>
-    <li id= name className= styles>
-    (ReasonReact.string(text))
+    <li id= data.name className="menu-item >
+    (ReasonReact.string(data.text))
     </li>
 };
