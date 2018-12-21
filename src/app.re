@@ -1,20 +1,15 @@
-[%bs.raw {|require('./app.css')|}];
-
 type action =
- | FETCHCHANNEL
- | FETCHEDWS(string)
+ | FETCHCATEGORY
  | FAILEDTOFETCH
- | CHECKOUT(string)
 
 type state =
  | LOADING
  | ERROR
- | LOADED(string)
- | CHECKOUT(string)
+ | LOADED
 
   let reducer = (action, _state) =>
    switch(action) {
-     | INIT => ReasonReact.UpdateWithSideEffects(
+     | FETCHCATEGORY => ReasonReact.UpdateWithSideEffects(
           LOADING,
           (
           )
@@ -28,17 +23,17 @@ let make = (_children) => {
   initialState: () => LOADING,
   reducer,
   didMount: self => {
-  self.send(INIT)
+
   },
   render: self =>
   switch(self.state){
     | ERROR => <div className="error"> ( ReasonReact.string("An Error Occured !!") ) </div>
     | LOADING => <div className="app">
                  <Menubar ~categories= nil />
-                 <div> ( ReasonReact.string("Loading... ") ) </div>
+                 <Page products = nil />
                  <Footer />
                  </div>
-    | LOADED(id) => <div className="app">
+    | LOADED => <div className="app">
                           <Menubar ~categories= Data.categories />
                           <Page products = nil />
                           <Footer />
