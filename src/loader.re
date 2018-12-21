@@ -36,6 +36,6 @@ let make = (_children) => {
     | ERROR => <div className = "notifications error"> ( ReasonReact.string("An Error Occured !!") ) </div>
                <App categories = [] />
     | LOADING => <App categories = [] />
-    | LOADED => <App categories = [] />
+    | LOADED(x) => <App categories = x />
 
 };
