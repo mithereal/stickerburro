@@ -5,22 +5,7 @@ let make = (_children) => {
   render: _self =>
     <footer className="sticky">
 
-    <nav className="footer-menu">
-
-    <ul>
-
-    <Li i="About" text="About" c="" />
-    <Li i="Blog" text="Blog" c="" />
-    <Li i="Uses" text="Uses" c="" />
-    <Li i="Templates" text="Templates" c="" />
-    <Li i="Gift cards" text="Gift cards" c="" />
-    <Li i="FAQs" text="FAQs" c="" />
-    <Li i="Returns" text="Returns" c="" />
-    <Li i="Contact" text="Contact" c="" />
-
-    </ul>
-
-    </nav>
+    <Menu name="footer-menu", ~items=footermenu />
 
     </footer>
 };

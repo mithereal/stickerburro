@@ -7,7 +7,7 @@ let make = (_children) => {
   render: _self =>
     <div className="App">
       <Menubar ~categories= Data.categories />
-      <Page />
+      <Page products = nil />
       <Footer />
     </div>
 };
