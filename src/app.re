@@ -39,8 +39,8 @@ let make = (~categories, _children) => {
   reducer,
   render: self =>
     <div className="app">
-    <Menubar categories= state.categories />
+    <Menubar categories = state.categories />
     <Page products = state.products />
-    <Footer />
+    <Footer items= [] />
     </div>
 

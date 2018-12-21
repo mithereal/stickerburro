@@ -33,7 +33,7 @@ let make = (_children) => {
   },
   render: self =>
   switch(self.state){
-    | ERROR => <div className="notifications error"> ( ReasonReact.string("An Error Occured !!") ) </div>
+    | ERROR => <div className = "notifications error"> ( ReasonReact.string("An Error Occured !!") ) </div>
                <App />
     | LOADING => <App />
     | LOADED => <App />

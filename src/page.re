@@ -7,11 +7,10 @@ let make = (~products, _children) => {
 
   (
 
-  switch (products) {
+  let product_count = 0
 
-  | nil => <Header />
-           <Featured />
-           <Video />
+  switch (product_count > 0) {
+  | true => <Products products = products />
   | _ => <Header />
          <Featured />
          <Video />

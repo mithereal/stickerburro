@@ -2,20 +2,20 @@
 
 let component = ReasonReact.statelessComponent("Menubar");
 
-let make = (~usermenu, ~categories, _children) => {
+let make = (~categories, _children) => {
   ...component,
   render: _self =>
-    <div className="menubar">
+    <div className = "menubar">
 
-    <div className="logo-container">
-    <img src=logo className="logo" alt="logo" />
+    <div className = "logo-container">
+    <img src = logo className = "logo" alt = "logo" />
     </div>
 
-   <Menu name="category-menu", ~items=usermenu />
+   <Menu name = "category-menu", ~items = categories />
 
 
-    <div className="user-menu">
-    <nav id="user-menu" title="user-menu">
+    <div className = "user-menu">
+    <nav id = "user-menu" title = "user-menu">
     <ul>
 
     </ul>

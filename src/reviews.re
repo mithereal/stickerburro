@@ -3,7 +3,7 @@ let component = ReasonReact.statelessComponent("Reviews");
 let make = (_children) => {
   ...component,
   render: _self =>
-    <div className="reviews">
+    <div className = "reviews">
 
     </div>
 };

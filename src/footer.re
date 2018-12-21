@@ -1,11 +1,11 @@
 let component = ReasonReact.statelessComponent("Footer");
 
-let make = (_children) => {
+let make = (~items, _children) => {
   ...component,
   render: _self =>
-    <footer className="sticky">
+    <footer className = "sticky">
 
-    <Menu name="footer-menu", ~items=footermenu />
+    <Menu name = "footer-menu", ~items = items />
 
     </footer>
 };
