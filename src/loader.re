@@ -2,11 +2,11 @@
 
 type action =
  | INIT
- | FAILEDTOFETCH
+ | FAIL
 
 type state =
- | LOADING
  | ERROR
+ | LOADING
  | LOADED
 
   let reducer = (action, _state) =>
@@ -16,6 +16,7 @@ type state =
           (
           )
           )
+     | FAIL => ReasonReact.Update(ERROR)
    };
 
 let component = ReasonReact.reducerComponent("Loader");
