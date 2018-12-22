@@ -1,46 +1,52 @@
 type action =
- | LOADCATEGORY
- | LOADPRODUCTS(category)
+ | LOADCATEGORY(string)
+ | LOADPRODUCTS(string)
 
 type state =  {
-categories: list(category),
-products: list(product)
+categories: option(list(category)),
+products: option(list(product)),
+current_category: option(category),
+current_product: option(product),
+cart: option(list(product))
 };
 
 type category = {
-name: string,
-url: string
-}
-
-type product = {
+id: string,
 name: string,
 url: string,
-description: string,
 image: string,
-}
+description: string
+};
+
+type product = {
+id: string,
+name: string,
+price: string,
+url: string,
+image: string,
+description: string
+};
+
 
 
   let reducer = (action, _state) =>
-   switch(action) {
-     | LOADCATEGORY => ReasonReact.UpdateWithSideEffects(
-
-          )
-          category = nil;
-          self.send(LOADPRODUCTS(category))
-     | LOADPRODUCTS(category) => products = [];
-                                 ReasonReact.Update(products: products)
+     | LOADPRODUCTS(category) => products = None;
+                                 ReasonReact.Update({ {...state, current_category: Some(category), products: products })
+     | LOADPRODUCT(products) => ReasonReact.Update({ {...state, current_product: Some(product) })
    };
-
+type state =
+ | LOADING
+ | ERROR
 let component = ReasonReact.reducerComponent("App");
 
 let make = (~categories, _children) => {
   ...component,
-  initialState: () => { categories: categories, products: [] },
+  initialState: () => { categories: Some(categories), products: None, current_category: None, current_product: None, cart: None },
   reducer,
   render: self =>
     <div className="app">
     <Menubar categories = state.categories />
-    <Page products = state.products />
-    <Footer items= [] />
+    <Page products = state.products, current_product = state.current_product />
+    <Footer items = [] />
     </div>
 
