@@ -8,7 +8,7 @@ url: string
 type action =
  | INIT
  | FAIL
- | SUCCESS(string)
+ | SUCCESS(list(category))
 
 type state =
  | ERROR
