@@ -33,7 +33,7 @@ description: string
 };
 
   let reducer = (action, _state) =>
-     | PAGE(page) => ReasonReact.Update({ {...state, page: page })
+     | PAGE(page) => ReasonReact.Update({ {...state, page: Some(page) })
      | LOADPRODUCT(product) => ReasonReact.Update({ {...state, current_product: Some(product) })
      | LOADPRODUCTS(category) => products = None;
                                  ReasonReact.Update({ {...state, current_category: Some(category), products: products })
@@ -43,7 +43,7 @@ let component = ReasonReact.reducerComponent("App");
 
 let make = (~status, ~categories, _children) => {
   ...component,
-  initialState: () => { status: status, account: None, categories: Some(categories), products: None, current_category: None, current_product: None, cart: None, token: None, page: "gallery" },
+  initialState: () => { status: status, account: None, categories: Some(categories), products: None, current_category: None, current_product: None, cart: None, token: None, page: Some("gallery") },
   reducer,
   render: self =>
     <div className="app">
