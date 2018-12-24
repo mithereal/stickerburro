@@ -1,8 +1,11 @@
 [%bs.raw {|require('./app.css')|}];
 
 type category = {
-title: string,
-url: string
+id: string,
+name: string,
+url: string,
+image: string,
+description: string
 };
 
 type action =

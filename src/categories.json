@@ -1,23 +1,37 @@
 {
-  "Stickers":{
-    "title":"Stickers"
+  "id-1":{
+    "id":"123"
+    "name":"Stickers"
     "url":"/stickers"
+    "image":"/xxx.png"
+    "description":"123"
   },
-  "Labels":{
-    "title":"Labels"
+  "id-2":{
+    "id":"123"
+    "name":"Labels"
     "url":"/labels"
+    "image":"/xxx.png"
+    "description":"123"
   },
-  "Magnets":{
-    "title":"magnets"
+  "id-3":{
+    "id":"123"
+    "name":"magnets"
     "url":"/magnets"
+    "image":"/xxx.png"
+    "description":"123"
   },
-  "Buttons":{
-    "title":"Buttons"
+  "id-4":{
+    "id":"123"
+    "name":"Buttons"
     "url":"/buttons"
+    "image":"/xxx.png"
+    "description":"123"
   },
-  "Packaging":{
-    "title":"Packaging"
+  "id-5":{
+    "id":"123"
+    "name":"Packaging"
     "url":"/packaging"
+    "image":"/xxx.png"
+    "description":"123"
   },
-}
 }
