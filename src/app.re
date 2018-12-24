@@ -53,13 +53,13 @@ let make = (~status, ~categories, _children) => {
   reducer,
   render: self =>
     <div className="app">
-    <Menubar categories = self.state.categories />
+    <Menubar categories = self.state.categories, send = self.send />
 
     (
     switch (self.state.page) {
-      | "gallery" => <Page page = "gallery" data = self.state.products  />
-      | "product" => <Page page = "product" data = self.state.product  />
-      | "cart" => <Page page = "cart" data = self.state.cart  />
+      | "gallery" => <Page page = "gallery" data = self.state.products,  send = self.send  />
+      | "product" => <Page page = "product" data = self.state.product,  send = self.send  />
+      | "cart" => <Page page = "cart" data = self.state.cart, send = self.send  />
       | _ => <Page page = "404" data = nil />
     )
 
