@@ -36,7 +36,7 @@ description: string
      | PAGE(page) => ReasonReact.Update({ {...state, page: Some(page) })
      | LOADPRODUCT(product) => ReasonReact.Update({ {...state, current_product: Some(product) })
      | LOADPRODUCTS(category) => products = None;
-                                 ReasonReact.Update({ {...state, current_category: Some(category), products: products })
+        ReasonReact.Update({ {...state, current_category: Some(category), products: products })
    };
 
 let component = ReasonReact.reducerComponent("App");
