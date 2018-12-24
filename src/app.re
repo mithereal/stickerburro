@@ -32,6 +32,10 @@ image: string,
 description: string
 };
 
+type account = {
+login: string
+}
+
   let reducer = (action, _state) =>
      | PAGE(page) => ReasonReact.Update({ {...state, page: Some(page) })
      | PRODUCT(product) => ReasonReact.Update({ {...state, current_product: Some(product) })
