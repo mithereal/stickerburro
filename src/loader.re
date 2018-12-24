@@ -3,23 +3,22 @@
 type action =
  | INIT
  | FAIL
- | SUCCESS
+ | SUCCESS(string)
 
 type state =
  | ERROR
  | LOADING
- | LOADED
+ | LOADED(string)
 
   let reducer = (action, _state) =>
    switch(action) {
      | INIT => ReasonReact.UpdateWithSideEffects(
           LOADING,
-          (
-          )
-          self.send(SUCCESS)
+          let categories = Data.json.categories
+          self.send(SUCCESS(x))
           )
      | FAIL => ReasonReact.Update(ERROR)
-     | SUCCESS => ReasonReact.Update(LOADED)
+     | SUCCESS(categories) => ReasonReact.Update(LOADED(categories))
    };
 
 let component = ReasonReact.reducerComponent("Loader");

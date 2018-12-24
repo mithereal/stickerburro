@@ -1,16 +1,15 @@
 let component = ReasonReact.statelessComponent("Page");
 
-let make = (~products, ~current_product,  _children) => {
+let make = (~page, ~data,  _children) => {
   ...component,
   render: _self =>
   <div id="page" className="page">
 
   (
 
-  let product_count = 0
-
-  switch (product_count > 0) {
-  | true => <Main products = products, current_product = current_product />
+  switch (page) {
+  | "gallery" => <Products data = data />
+  | "product" => <Product data = data />
   | _ => <Header />
          <Featured />
          <Video />

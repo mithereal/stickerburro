@@ -1,0 +1,23 @@
+{
+  "Stickers":{
+    "title":"Stickers"
+    "url":"/stickers"
+  },
+  "Labels":{
+    "title":"Labels"
+    "url":"/labels"
+  },
+  "Magnets":{
+    "title":"magnets"
+    "url":"/magnets"
+  },
+  "Buttons":{
+    "title":"Buttons"
+    "url":"/buttons"
+  },
+  "Packaging":{
+    "title":"Packaging"
+    "url":"/packaging"
+  },
+}
+}

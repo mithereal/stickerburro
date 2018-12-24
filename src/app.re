@@ -46,7 +46,7 @@ let make = (~categories, _children) => {
   render: self =>
     <div className="app">
     <Menubar categories = state.categories />
-    <Page products = state.products, current_product = state.current_product />
+    <Page page = "gallery" data = state.products  />
     <Footer items = [] />
     </div>
 
