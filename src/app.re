@@ -51,7 +51,7 @@ let make = (~categories, _children) => {
       | "gallery" => <Page page = "gallery" data = state.products  />
       | "product" => <Page page = "product" data = state.product  />
       | "cart" => <Page page = "cart" data = state.cart  />
-      | _ => <Page page = state.page data = nil />
+      | _ => <Page page = "404" data = nil />
     )
 
 
