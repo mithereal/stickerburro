@@ -39,13 +39,14 @@ currency: string
 };
 
 module Decode = {
+
    let cat = (category) => Json.Decode.{
      id: category |> field("id", string)
      name: category |> field("name", string)
      url: category |> field("url", string)
      image: category |> field("image", string)
      description: category |> field("description", string)
-     }
+     };
 
      let prod = (product) => Json.Decode.{
      id: product |> field("id", string)
@@ -54,12 +55,13 @@ module Decode = {
      price: product |> field("price", string)
      image: product |> field("image", string)
      description: product |> field("description", string)
-     }
+     };
 
-     let acc = (account) => Json.Decode.{
+     let acct = (account) => Json.Decode.{
      login: account |> field("login", string)
      currency: account |> field("currency", string)
-     }
+     };
+
     };
 
   let reducer = (action, _state) =>
