@@ -15,7 +15,7 @@ type state =
      | INIT => ReasonReact.UpdateWithSideEffects(
           LOADING,
           let categories = Data.json.categories
-          self.send(SUCCESS(x))
+          self.send(SUCCESS(categories))
           )
      | FAIL => ReasonReact.Update(ERROR)
      | SUCCESS(categories) => ReasonReact.Update(LOADED(categories))
