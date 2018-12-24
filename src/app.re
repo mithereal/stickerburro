@@ -3,6 +3,7 @@ type action =
  | LOADPRODUCTS(string)
 
 type state =  {
+status: string,
 account: option(account),
 categories: option(list(category)),
 products: option(list(product)),
@@ -38,9 +39,9 @@ description: string
 
 let component = ReasonReact.reducerComponent("App");
 
-let make = (~categories, _children) => {
+let make = (~status, ~categories, _children) => {
   ...component,
-  initialState: () => { account: None, categories: Some(categories), products: None, current_category: None, current_product: None, cart: None, token: None, page: "gallery" },
+  initialState: () => { status: status, account: None, categories: Some(categories), products: None, current_category: None, current_product: None, cart: None, token: None, page: "gallery" },
   reducer,
   render: self =>
     <div className="app">

@@ -46,7 +46,7 @@ let make = (_children) => {
     | LOADING => <div className = "notifications loading"> ( ReasonReact.string("Please Wait") ) </div>
                 <Loading />
     | OFFLINE => <div className = "notifications offline"> ( ReasonReact.string("Offline") ) </div>
-                 <App categories = [] />
-    | ONLINE(x) => <App categories = x />
+                 <App status = "offline", categories = [] />
+    | ONLINE(x) => <App status = "online", categories = x />
 
 };
