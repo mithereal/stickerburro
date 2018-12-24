@@ -1,5 +1,10 @@
 [%bs.raw {|require('./app.css')|}];
 
+type category = {
+title: string,
+url: string
+};
+
 type action =
  | INIT
  | FAIL
@@ -8,7 +13,7 @@ type action =
 type state =
  | ERROR
  | LOADING
- | LOADED(string)
+ | LOADED(list(category))
 
   let reducer = (action, _state) =>
    switch(action) {
