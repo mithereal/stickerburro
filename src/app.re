@@ -11,6 +11,7 @@ products: option(list(product)),
 current_category: option(category),
 current_product: option(product),
 cart: option(list(product)),
+currency: option(string),
 token: option(string),
 page: option(string)
 };
@@ -48,7 +49,7 @@ let component = ReasonReact.reducerComponent("App");
 
 let make = (~status, ~categories, _children) => {
   ...component,
-  initialState: () => { status: status, account: None, categories: Some(categories), products: None, current_category: None, current_product: None, cart: None, token: None, page: Some("gallery") },
+  initialState: () => { status: status, account: None, categories: Some(categories), products: None, current_category: None, current_product: None, cart: None, token: None, page: Some("gallery"), currency: Some("USD") },
   reducer,
   render: self =>
     <div className="app">
