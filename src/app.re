@@ -1,6 +1,6 @@
 type action =
- | LOADCATEGORY(string)
- | LOADPRODUCTS(string)
+ | CATEGORY(string)
+ | PRODUCT(string)
  | PAGE(string)
 
 type state =  {
@@ -34,8 +34,8 @@ description: string
 
   let reducer = (action, _state) =>
      | PAGE(page) => ReasonReact.Update({ {...state, page: Some(page) })
-     | LOADPRODUCT(product) => ReasonReact.Update({ {...state, current_product: Some(product) })
-     | LOADPRODUCTS(category) => products = None;
+     | PRODUCT(product) => ReasonReact.Update({ {...state, current_product: Some(product) })
+     | CATEGORY(category) => products = None;
         ReasonReact.Update({ {...state, current_category: Some(category), products: products })
    };
 
