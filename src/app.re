@@ -33,7 +33,8 @@ description: string
 };
 
 type account = {
-login: string
+login: string,
+currency: string
 }
 
   let reducer = (action, _state) =>
