@@ -9,6 +9,7 @@ let make = (~page, ~data,  _children) => {
 
   switch (page) {
   | "gallery" => <Category data = data />
+  | "category" => <Category data = data />
   | "product" => <Product data = data />
   | "cart" => <Cart data = data />
   | _ => <Header />
