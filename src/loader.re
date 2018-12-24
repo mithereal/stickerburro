@@ -14,9 +14,10 @@ type action =
  | SUCCESS(list(category))
 
 type state =
- | ERROR
+ | ERROR(string)
  | LOADING
- | LOADED(list(category))
+ | OFFLINE
+ | ONLINE(list(category))
 
   let reducer = (action, _state) =>
    switch(action) {
@@ -25,8 +26,8 @@ type state =
           let categories = Data.json.categories
           self.send(SUCCESS(categories))
           )
-     | FAIL => ReasonReact.Update(ERROR)
-     | SUCCESS(categories) => ReasonReact.Update(LOADED(categories))
+     | FAIL => ReasonReact.Update(OFFLINE)
+     | SUCCESS(categories) => ReasonReact.Update(ONLINE(categories))
    };
 
 let component = ReasonReact.reducerComponent("Loader");
@@ -40,10 +41,12 @@ let make = (_children) => {
   },
   render: self =>
   switch(self.state){
-    | ERROR => <div className = "notifications error"> ( ReasonReact.string("An Error Occured !!") ) </div>
-               <App categories = [] />
-    | LOADING => <div className = "notifications wait"> ( ReasonReact.string("Please Wait") ) </div>
-    <App categories = [] />
-    | LOADED(x) => <App categories = x />
+    | ERROR(err) => <div className = "notifications error"> ( ReasonReact.string("An Error Occured !!") ) </div>
+                <Error data = err />
+    | LOADING => <div className = "notifications loading"> ( ReasonReact.string("Please Wait") ) </div>
+                <Loading />
+    | OFFLINE => <div className = "notifications offline"> ( ReasonReact.string("Offline") ) </div>
+                 <App categories = [] />
+    | ONLINE(x) => <App categories = x />
 
 };
