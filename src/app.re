@@ -31,7 +31,7 @@ let component = ReasonReact.reducerComponent("App");
 
 let make = (~status, ~categories:Types.categories, _children) => {
   ...component,
-  initialState: () => { status: status, account: None, categories: categories, products: None, current_category: None, current_product: None, cart: None, token: None, page: "featured", currency: Some("USD") },
+  initialState: () => { status: status, account: None, categories: categories, products: None, current_category: None, current_product: None, cart: None, token: None, page: "index", currency: Some("USD") },
   reducer,
   render: self =>
     <div className="app">
@@ -40,7 +40,14 @@ let make = (~status, ~categories:Types.categories, _children) => {
     (
     switch (self.state.page) {
       | "gallery" => <Category data = self.state.products send = self.send />
-      | _ => <div> ( ReasonReact.string("Nothing to see here") )  </div>
+      | "product" => <Product data = None  send = self.send />
+      | "cart" => <Cart data = self.state.cart  send = self.send />
+      | "featured" => <Featured />
+      | "index" => <Frontpage />
+      | "careers" => <Careers />
+      | "contact" => <Contact />
+      | "checkout" => <Checkout />
+      | _ => <Frontpage />
       }
     )
 </div>

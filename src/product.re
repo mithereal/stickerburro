@@ -13,7 +13,7 @@ let make = (~data:option(Types.product), ~send, _children) => {
 
     </div>
     <div className = "buttons">
-       <button id = "add_to_cart" onClick=(_event => send(ADDTOCART(data)))> (ReasonReact.string("Add To Cart")) </button>
+       <button id = "add_to_cart" > (ReasonReact.string("Add To Cart")) </button>
     </div>
  
     </div>
