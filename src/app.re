@@ -47,6 +47,13 @@ let make = (~status, ~categories:Types.categories, _children) => {
       | "careers" => <Careers />
       | "contact" => <Contact />
       | "checkout" => <Checkout />
+      | "support" => <Support />
+      | "press" => <Press />
+      | "shipping" => <Shipping />
+      | "orders" => <Orders />
+      | "order" => <Order />
+      | "register" => <Register />
+      | "login" => <Login />
       | _ => <Frontpage />
       }
     )
