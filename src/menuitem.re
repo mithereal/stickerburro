@@ -1,18 +1,9 @@
 let component = ReasonReact.statelessComponent("Menu Item");
 
-
-type category = {
-id: string,
-name: string,
-url: string,
-image: string,
-description: string
-};
-
 type action =
-| CATEGORY(category)
+| CATEGORY(Types.category)
 
-let make = (~data, ~send,  _children) => {
+let make = (~data:Types.category, ~send,  _children) => {
   ...component,
   render: _self =>
     <li id = data.name className = "menu-item" onClick=(_event => send(CATEGORY(data))) >

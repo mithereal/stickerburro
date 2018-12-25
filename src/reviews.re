@@ -1,12 +1,7 @@
-type review = {
-id: string
-}
-
-type reviews = list(review)
 
 let component = ReasonReact.statelessComponent("Reviews");
 
-let make = (~data:reviews, _children) => {
+let make = (~data:Types.reviews, _children) => {
   ...component,
   render: _self =>
     <div className = "reviews">

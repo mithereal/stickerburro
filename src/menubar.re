@@ -2,7 +2,7 @@
 
 let component = ReasonReact.statelessComponent("Menubar");
 
-let make = (~categories, ~send, _children) => {
+let make = (~categories:Types.categories, ~send, _children) => {
   ...component,
   render: _self =>
     <div className = "menubar">

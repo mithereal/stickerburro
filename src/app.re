@@ -1,30 +1,6 @@
 [%bs.raw {|require('./app.css')|}];
 
-type account = {
-login: string,
-currency: string
-};
-
-type category = {
-id: string,
-name: string,
-url: string,
-image: string,
-description: string
-};
-
-type product = {
-id: string,
-name: string,
-price: string,
-url: string,
-image: string,
-description: string
-};
-
-type categories = option(list(category))
-
-type products = option(list(product))
+open Types;
 
 type state =  {
 status: string,
