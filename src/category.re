@@ -1,6 +1,18 @@
+type product = {
+id: string,
+name: string,
+price: string,
+url: string,
+image: string,
+description: string
+};
+
+type products = list(product)
+
+
 let component = ReasonReact.statelessComponent("Category");
 
-let make = (~data, ~send, _children) => {
+let make = (~data:products, ~send, _children) => {
   ...component,
   render: _self =>
     <div className = "products">

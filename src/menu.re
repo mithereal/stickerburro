@@ -1,6 +1,12 @@
+type item = {
+id: string
+}
+
+type items = list(item)
+
 let component = ReasonReact.statelessComponent("Menu");
 
-let make = (~name, ~items, ~send, _children) => {
+let make = (~name, ~items:items, ~send, _children) => {
   ...component,
   render: _self =>
   <nav id = name title = name>
