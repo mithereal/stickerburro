@@ -1,4 +1,27 @@
- let cat = (category) => Json.Decode.{
+
+type category = {
+id: string,
+name: string,
+url: string,
+image: string,
+description: string
+};
+
+type product = {
+id: string,
+name: string,
+price: string,
+url: string,
+image: string,
+description: string
+};
+
+type account = {
+login: string,
+currency: string
+};
+
+let cat = (category) => Json.Decode.{
      id: category |> field("id", string),
      name: category |> field("name", string),
      url: category |> field("url", string),
