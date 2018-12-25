@@ -1,27 +1,24 @@
-type category = {
-id: string,
-name: string,
-url: string,
-image: string,
-description: string
-};
-
-type categories = option(list(category))
 
 type action =
  | INIT
  | FAIL
- | SUCCESS(categories)
+ | SUCCESS(Types.categories)
 
 type state =
  | ERROR(string)
  | LOADING
  | OFFLINE
- | ONLINE(categories)
+ | ONLINE(Types.categories)
 
   let reducer = (action, _state) =>
    switch(action) {
-     | INIT => ReasonReact.Update(LOADING)
+     | INIT => ReasonReact.UpdateWithSideEffects(
+                     LOADING,
+                     (
+                     self =>
+                     self.send(FAIL)
+                     ),
+                     )
      | FAIL => ReasonReact.Update(OFFLINE)
      | SUCCESS(categories) => ReasonReact.Update(ONLINE(categories))
    };
@@ -39,7 +36,7 @@ let make = (_children) => {
   switch(self.state) {
     | ERROR(err) => <div className = "notifications error"> ( ReasonReact.string("An Error Has Occurred") ) </div>
     | LOADING => <div className = "notifications loading"> ( ReasonReact.string("Please Wait") ) </div>
-    | ONLINE(categories) => <App status = "online" categories = categories />
+    | ONLINE(categories) => <App status = "online" categories = None />
     | OFFLINE => <App status = "offline" categories = None />
     }
 

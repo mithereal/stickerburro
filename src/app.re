@@ -29,9 +29,9 @@ switch(action){
 
 let component = ReasonReact.reducerComponent("App");
 
-let make = (~status, ~categories, _children) => {
+let make = (~status, ~categories:Types.categories, _children) => {
   ...component,
-  initialState: () => { status: status, account: None, categories: Some(categories), products: None, current_category: None, current_product: None, cart: None, token: None, page: "featured", currency: Some("USD") },
+  initialState: () => { status: status, account: None, categories: categories, products: None, current_category: None, current_product: None, cart: None, token: None, page: "featured", currency: Some("USD") },
   reducer,
   render: self =>
     <div className="app">
@@ -40,15 +40,10 @@ let make = (~status, ~categories, _children) => {
     (
     switch (self.state.page) {
       | "gallery" => <Category data = self.state.products send = self.send />
-      | "product" => <Product data = self.state.current_product  send = self.send />
-      | "cart" => <Cart data = self.state.cart  send = self.send />
-      | "featured" => <Header />
-                      <Featured />
-                      <Video />
       | _ => <div> ( ReasonReact.string("Nothing to see here") )  </div>
       }
     )
 </div>
-    <Footer send = send />
+    <Footer send = self.send />
     </div>
     }
