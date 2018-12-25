@@ -55,21 +55,24 @@ let component = ReasonReact.reducerComponent("App");
 
 let make = (~status, ~categories, _children) => {
   ...component,
-  initialState: () => { status: status, account: None, categories: Some(categories), products: None, current_category: None, current_product: None, cart: None, token: None, page: Some("gallery"), currency: Some("USD") },
+  initialState: () => { status: status, account: None, categories: Some(categories), products: None, current_category: None, current_product: None, cart: None, token: None, page: Some("featured"), currency: Some("USD") },
   reducer,
   render: self =>
     <div className="app">
     <Menubar categories = self.state.categories send = self.send />
-
+<div id="page" className="page">
     (
     switch (self.state.page) {
-      | "gallery" => <Page page = "gallery" data = self.state.products  send = self.send  />
-      | "product" => <Page page = "product" data = self.state.product  send = self.send  />
-      | "cart" => <Page page = "cart" data = self.state.cart send = self.send  />
-      | _ => <Page page = "404" data = nil />
+      | "gallery" => <Category data = data send = send />
+      | "product" => <Product data = data  send = send />
+      | "cart" => <Cart data = data  send = send />
+      | "featured" => <Header />
+                      <Featured />
+                      <Video />
+      | _ => <div></div>
       }
     )
-
+</div>
     <Footer />
     </div>
     }
