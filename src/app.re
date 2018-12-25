@@ -1,19 +1,8 @@
-type action =
- | CATEGORY(category)
- | PRODUCT(product)
- | PAGE(string)
+[%bs.raw {|require('./app.css')|}];
 
-type state =  {
-status: string,
-account: option(account),
-categories: option(list(category)),
-products: option(list(product)),
-current_category: option(category),
-current_product: option(product),
-cart: option(list(product)),
-currency: option(string),
-token: option(string),
-page: option(string)
+type account = {
+login: string,
+currency: string
 };
 
 type category = {
@@ -33,18 +22,34 @@ image: string,
 description: string
 };
 
-type account = {
-login: string,
-currency: string
+type categories = option(list(category))
+
+type products = option(list(product))
+
+type state =  {
+status: string,
+account: option(account),
+categories: categories,
+products: products,
+current_category: option(category),
+current_product: option(product),
+cart: option(products),
+currency: option(string),
+token: option(string),
+page: option(string)
 };
 
-  let reducer = (action, _state) =>
-  switch(action){
-     | PAGE(page) => ReasonReact.Update({ ...state, page: Some(page) })
-     | PRODUCT(product) => ReasonReact.Update({ ...state, current_product: Some(product) })
-     | CATEGORY(category) =>  ReasonReact.Update({ ...state, current_category: Some(category) })
-     }
+type action =
+ | CATEGORY(category)
+ | PRODUCT(product)
+ | PAGE(string)
 
+let reducer = (action, _state) =>
+switch(action){
+   | PAGE(page) => ReasonReact.Update({ ...state, page: Some(page) })
+   | PRODUCT(product) => ReasonReact.Update({ ...state, current_product: Some(product) })
+   | CATEGORY(category) =>  ReasonReact.Update({ ...state, current_category: Some(category) })
+   }
 
 let component = ReasonReact.reducerComponent("App");
 
@@ -64,7 +69,6 @@ let make = (~status, ~categories, _children) => {
       | _ => <Page page = "404" data = nil />
       }
     )
-
 
     <Footer />
     </div>
