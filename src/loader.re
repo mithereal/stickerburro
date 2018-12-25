@@ -1,5 +1,3 @@
-[%bs.raw {|require('./app.css')|}];
-
 type category = {
 id: string,
 name: string,
