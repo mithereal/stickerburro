@@ -6,7 +6,7 @@ let make = (~data, _children) => {
     <div className = "reviews">
         (
             data
-            |> List.map((review) => <Review data = review />)
+            |> List.map( review => <Review data = review />)
         )
     </div>
 };

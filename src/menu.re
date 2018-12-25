@@ -7,7 +7,7 @@ let make = (~name, ~items, ~send, _children) => {
     <ul>
     (
         items
-        |> List.map((item) => <Menuitem data = item send = send />)
+        |> List.map( item => <Menuitem data = item send = send />)
     )
     </ul>
   </nav>
