@@ -69,7 +69,7 @@ let make = (~status, ~categories, _children) => {
       | "featured" => <Header />
                       <Featured />
                       <Video />
-      | _ => <div></div>
+      | _ => <div> ( ReasonReact.string("Nothing to see here") )  </div>
       }
     )
 </div>
