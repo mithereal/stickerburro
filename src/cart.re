@@ -2,7 +2,7 @@
 
 let component = ReasonReact.statelessComponent("Cart");
 
-let make = (~data:Types.products, ~send , _children) => {
+let make = (~data:Types.products_list, ~send , _children) => {
   ...component,
   render: _self =>
     <div className = "cart">

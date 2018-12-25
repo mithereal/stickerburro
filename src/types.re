@@ -36,5 +36,8 @@ type reviews = list(review)
 type menu = list(item)
 
 type categories = option(list(category))
+type categories_list = list(category)
 
 type products = option(list(product))
+
+type products_list = list(product)
