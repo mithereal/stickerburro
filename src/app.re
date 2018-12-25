@@ -31,7 +31,7 @@ let component = ReasonReact.reducerComponent("App");
 
 let make = (~status, ~categories, _children) => {
   ...component,
-  initialState: () => { status: status, account: None, categories: Some(categories), products: None, current_category: None, current_product: None, cart: None, token: None, page: Some("featured"), currency: Some("USD") },
+  initialState: () => { status: status, account: None, categories: Some(categories), products: None, current_category: None, current_product: None, cart: None, token: None, page: "featured", currency: Some("USD") },
   reducer,
   render: self =>
     <div className="app">
