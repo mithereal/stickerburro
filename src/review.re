@@ -5,9 +5,9 @@ let make = (~data, _children) => {
   render: _self =>
     <div className = "review">
 
-    <div className = "review-stars"><img src = "(ReasonReact.string(data.stars))"></div>
+    <div className = "review-stars"></div>
     <div className = "review-description">
-    (ReasonReact.string(data.description))
+
     </div>
     </div>
 

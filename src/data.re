@@ -1,5 +1,5 @@
-let json.categories = [%raw {| require('./categories.json')|}];
-let json.footer = [%raw {| require('./footer.json')|}];
-let json.products = [%raw {| require('./products.json')|}];
-let json.product = [%raw {| require('./product.json')|}];
+let json_categories = [%raw {| require('./categories.json')|}];
+let json_footer = [%raw {| require('./footer.json')|}];
+let json_products = [%raw {| require('./products.json')|}];
+let json_product = [%raw {| require('./product.json')|}];
 

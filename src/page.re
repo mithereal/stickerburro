@@ -8,10 +8,10 @@ let make = (~page, ~data, ~send, _children) => {
   (
 
   switch (page) {
-  | "gallery" => <Category data = data, send = send />
-  | "category" => <Category data = data , send = send />
-  | "product" => <Product data = data , send = send />
-  | "cart" => <Cart data = data , send = send />
+  | "gallery" => <Category data = data send = send />
+  | "category" => <Category data = data send = send />
+  | "product" => <Product data = data  send = send />
+  | "cart" => <Cart data = data  send = send />
   | _ => <Header />
          <Featured />
          <Video />

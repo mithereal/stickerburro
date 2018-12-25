@@ -11,7 +11,7 @@ let make = (~categories, ~send, _children) => {
     <img src = logo className = "logo" alt = "logo" />
     </div>
 
-   <Menu name = "category-menu", items = categories, send = send  />
+   <Menu name = "category-menu" items = categories send = send  />
 
 
     <div className = "user-menu">

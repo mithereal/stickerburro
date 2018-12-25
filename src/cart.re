@@ -6,7 +6,7 @@ let make = (~data, ~send , _children) => {
     <div className = "cart">
          (
                     data
-                    | List.map((product) => <Product data = product />)
+                    |> List.map((product) => <Product data = product />)
                 )
                     <div classname = "buttons">
                     <button id = "back" onClick=(_event => send(PAGE("gallery"))) > (ReasonReact.string("Back")) </button>

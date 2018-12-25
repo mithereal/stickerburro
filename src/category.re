@@ -6,7 +6,7 @@ let make = (~data, ~send, _children) => {
     <div className = "products">
         (
             data
-            | List.map((product) => <Product data = product , send = send/>)
+            |> List.map((product) => <Product data = product  send = send/>)
         )
     </div>
 };

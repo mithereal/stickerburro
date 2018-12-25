@@ -5,7 +5,7 @@ let make = (~items, _children) => {
   render: _self =>
     <footer className = "sticky">
 
-    <Menu name = "footer-menu", ~items = items />
+    <Menu name = "footer-menu" items = items />
 
     </footer>
 };

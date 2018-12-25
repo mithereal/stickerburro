@@ -21,11 +21,7 @@ type state =
 
   let reducer = (action, _state) =>
    switch(action) {
-     | INIT => ReasonReact.UpdateWithSideEffects(
-          LOADING,
-          let categories = Data.json.categories
-          self.send(SUCCESS(categories))
-          )
+     | INIT => ReasonReact.Update(LOADING)
      | FAIL => ReasonReact.Update(OFFLINE)
      | SUCCESS(categories) => ReasonReact.Update(ONLINE(categories))
    };
@@ -40,13 +36,17 @@ let make = (_children) => {
   self.send(INIT)
   },
   render: self =>
+  <div className = "loader">
+  (
   switch(self.state){
     | ERROR(err) => <div className = "notifications error"> ( ReasonReact.string("An Error Occured !!") ) </div>
-                <Error data = err />
+
     | LOADING => <div className = "notifications loading"> ( ReasonReact.string("Please Wait") ) </div>
-                <Loading />
-    | OFFLINE => <div className = "notifications offline"> ( ReasonReact.string("Offline") ) </div>
-                 <App status = "offline", categories = [] />
+
+    | OFFLINE => <App status = "offline", categories = [] />
     | ONLINE(x) => <App status = "online", categories = x />
 
 };
+)
+</div>
+}
