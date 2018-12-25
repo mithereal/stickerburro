@@ -1,8 +1,8 @@
-let review = {
+type review = {
 id: string
 }
 
-let reviews = list(review)
+type reviews = list(review)
 
 let component = ReasonReact.statelessComponent("Reviews");
 
