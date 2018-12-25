@@ -12,7 +12,7 @@ current_product: option(product),
 cart: option(products),
 currency: option(string),
 token: option(string),
-page: option(string)
+page: string
 };
 
 type action =
@@ -20,9 +20,9 @@ type action =
  | PRODUCT(product)
  | PAGE(string)
 
-let reducer = (action, _state) =>
+let reducer = (action, state) =>
 switch(action){
-   | PAGE(page) => ReasonReact.Update({ ...state, page: Some(page) })
+   | PAGE(page) => ReasonReact.Update({ ...state, page: page })
    | PRODUCT(product) => ReasonReact.Update({ ...state, current_product: Some(product) })
    | CATEGORY(category) =>  ReasonReact.Update({ ...state, current_category: Some(category) })
    }
@@ -39,9 +39,9 @@ let make = (~status, ~categories, _children) => {
 <div id="page" className="page">
     (
     switch (self.state.page) {
-      | "gallery" => <Category data = data send = send />
-      | "product" => <Product data = data  send = send />
-      | "cart" => <Cart data = data  send = send />
+      | "gallery" => <Category data = self.state.products send = send />
+      | "product" => <Product data = self.state.current_product  send = send />
+      | "cart" => <Cart data = self.state.cart  send = send />
       | "featured" => <Header />
                       <Featured />
                       <Video />
@@ -49,6 +49,6 @@ let make = (~status, ~categories, _children) => {
       }
     )
 </div>
-    <Footer />
+    <Footer send = send />
     </div>
     }

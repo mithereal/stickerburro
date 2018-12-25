@@ -4,9 +4,6 @@ let make = (~data:Types.products_list, ~send, _children) => {
   ...component,
   render: _self =>
     <div className = "products">
-        (
-            data
-            |> List.map( product => <Product data = product  send = send/>)
-        )
+
     </div>
 };

@@ -5,10 +5,7 @@ let make = (~name, ~items:Types.categories, ~send, _children) => {
   render: _self =>
   <nav id = name title = name>
     <ul>
-    (
-        items
-        |> List.map( item => <Menuitem data = item send = send />)
-    )
+
     </ul>
   </nav>
 };
