@@ -8,16 +8,18 @@ image: string,
 description: string
 };
 
+type categories = option(list(category))
+
 type action =
  | INIT
  | FAIL
- | SUCCESS(list(category))
+ | SUCCESS(categories)
 
 type state =
  | ERROR(string)
  | LOADING
  | OFFLINE
- | ONLINE(list(category))
+ | ONLINE(categories)
 
   let reducer = (action, _state) =>
    switch(action) {
@@ -35,8 +37,12 @@ let make = (_children) => {
   didMount: self => {
   self.send(INIT)
   },
-  render: self =>
-  <div className = "loader">
+  render: (self) =>
+  switch(self.state) {
+    | ERROR(err) => <div className = "notifications error"> ( ReasonReact.string("An Error Has Occurred") ) </div>
+    | LOADING => <div className = "notifications loading"> ( ReasonReact.string("Please Wait") ) </div>
+    | ONLINE(categories) => <App status = "online" categories = categories />
+    | OFFLINE => <App status = "offline" categories = None />
+    }
 
-</div>
-}
+};
