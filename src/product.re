@@ -1,9 +1,9 @@
 type action =
-| ADDTOCART(string)
+| ADDTOCART(option(Types.product))
 
 let component = ReasonReact.statelessComponent("Product");
 
-let make = (~data, ~send, _children) => {
+let make = (~data:option(Types.product), ~send, _children) => {
   ...component,
   render: _self =>
     <div  className = "product">

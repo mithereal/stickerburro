@@ -39,9 +39,9 @@ let make = (~status, ~categories, _children) => {
 <div id="page" className="page">
     (
     switch (self.state.page) {
-      | "gallery" => <Category data = self.state.products send = send />
-      | "product" => <Product data = self.state.current_product  send = send />
-      | "cart" => <Cart data = self.state.cart  send = send />
+      | "gallery" => <Category data = self.state.products send = self.send />
+      | "product" => <Product data = self.state.current_product  send = self.send />
+      | "cart" => <Cart data = self.state.cart  send = self.send />
       | "featured" => <Header />
                       <Featured />
                       <Video />

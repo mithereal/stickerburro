@@ -4,9 +4,9 @@ let component = ReasonReact.statelessComponent("Cart");
 
 type action =
 | PAGE(string)
-| CHECKOUT(Types.products_list)
+| CHECKOUT(Types.products)
 
-let make = (~data:Types.products_list, ~send , _children) => {
+let make = (~data:Types.products, ~send , _children) => {
   ...component,
   render: _self =>
     <div className = "cart">
