@@ -41,3 +41,5 @@ type categories_list = list(category)
 type products = option(list(product))
 
 type products_list = list(product)
+
+type cart = option(products)

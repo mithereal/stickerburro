@@ -9,7 +9,7 @@ categories: categories,
 products: products,
 current_category: option(category),
 current_product: option(product),
-cart: option(products),
+cart: cart,
 currency: option(string),
 token: option(string),
 page: string
@@ -46,9 +46,10 @@ let make = (~status, ~categories:Types.categories, _children) => {
       | "index" => <Frontpage />
       | "careers" => <Careers />
       | "contact" => <Contact />
-      | "checkout" => <Checkout />
+      | "checkout" => <Checkout cart = self.state.cart send = self.send  />
       | "support" => <Support />
       | "press" => <Press />
+      | "about" => <About />
       | "shipping" => <Shipping />
       | "orders" => <Orders />
       | "order" => <Order />
