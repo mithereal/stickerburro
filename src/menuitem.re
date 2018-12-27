@@ -1,7 +1,6 @@
 let component = ReasonReact.statelessComponent("Menu Item");
 
-type action =
-| CATEGORY(Types.category)
+open Actions;
 
 let make = (~data:Types.category, ~send,  _children) => {
   ...component,

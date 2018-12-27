@@ -36,7 +36,7 @@ let make = (_children) => {
   switch(self.state) {
     | ERROR(err) => <div className = "notifications error"> ( ReasonReact.string("An Error Has Occurred") ) </div>
     | LOADING => <div className = "notifications loading"> ( ReasonReact.string("Please Wait") ) </div>
-    | ONLINE(categories) => <App status = "online" categories = None />
+    | ONLINE(categories) => <App status = "online" categories = categories />
     | OFFLINE => <App status = "offline" categories = None />
     }
 

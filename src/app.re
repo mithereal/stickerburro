@@ -1,6 +1,7 @@
 [%bs.raw {|require('./app.css')|}];
 
 open Types;
+open Actions;
 
 type state =  {
 status: string,
@@ -15,13 +16,11 @@ token: option(string),
 page: string
 };
 
-type action =
- | CATEGORY(category)
- | PRODUCT(product)
- | PAGE(string)
+
 
 let reducer = (action, state) =>
 switch(action){
+   | ADDTOCART(p) => ReasonReact.Update({ ...state, page: "cart" })
    | PAGE(page) => ReasonReact.Update({ ...state, page: page })
    | PRODUCT(product) => ReasonReact.Update({ ...state, current_product: Some(product) })
    | CATEGORY(category) =>  ReasonReact.Update({ ...state, current_category: Some(category) })
@@ -35,11 +34,11 @@ let make = (~status, ~categories:Types.categories, _children) => {
   reducer,
   render: self =>
     <div className="app">
-    <Menubar categories = self.state.categories send = self.send />
+    <Categorybar categories = self.state.categories send = self.send />
 <div id="page" className="page">
     (
     switch (self.state.page) {
-      | "gallery" => <Category data = self.state.products send = self.send />
+      | "gallery" => <Category category = self.state.current_category data = self.state.products send = self.send />
       | "product" => <Product data = None  send = self.send />
       | "cart" => <Cart data = self.state.cart  send = self.send />
       | "featured" => <Featured />

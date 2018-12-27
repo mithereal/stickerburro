@@ -4,10 +4,10 @@ let make = (_children) => {
   ...component,
   render: _self =>
     <div className = "partners">
-<ul>
-<li>
-<Partner name = "test" logo = "/test.svg"/>
-</li>
-</ul>
+
+<Partner name = "Github.com" logo = "/github.svg"/>
+<Partner name = "AZHG.com" logo = "/azhg.svg"/>
+<Partner name = "Movers.io" logo = "/movers.svg"/>
+
 </div>
 };
