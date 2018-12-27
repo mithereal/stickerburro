@@ -4,7 +4,7 @@ let make = (~name, ~items:Types.categories, ~send, _children) => {
   ...component,
   render: _self =>
   <nav id = name title = name>
-    <div>
+    <ul className = "category-menu" >
      (
                   switch (items) {
                   | None => ReasonReact.null
@@ -20,6 +20,6 @@ let make = (~name, ~items:Types.categories, ~send, _children) => {
 
 
 
-    </div>
+    </ul>
   </nav>
 };

@@ -1,3 +1,4 @@
+open Types;
 
 type action =
  | INIT
@@ -10,13 +11,23 @@ type state =
  | OFFLINE
  | ONLINE(Types.categories)
 
+ let c: category = {
+                     id: "1",
+                     name: "stickers",
+                     url: "/stickers",
+                     image: "/stickers.svg",
+                     description: "the stickers menu"
+                     }
+
+ let cats: categories = Some([c]);
+
   let reducer = (action, _state) =>
    switch(action) {
      | INIT => ReasonReact.UpdateWithSideEffects(
                      LOADING,
                      (
                      self =>
-                     self.send(FAIL)
+                     self.send(SUCCESS(cats))
                      ),
                      )
      | FAIL => ReasonReact.Update(OFFLINE)
