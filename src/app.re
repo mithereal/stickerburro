@@ -22,8 +22,9 @@ let reducer = (action, state) =>
 switch(action){
    | ADDTOCART(p) => ReasonReact.Update({ ...state, page: "cart" })
    | PAGE(page) => ReasonReact.Update({ ...state, page: page })
-   | PRODUCT(product) => ReasonReact.Update({ ...state, current_product: Some(product) })
-   | CATEGORY(category) =>  ReasonReact.Update({ ...state, current_category: Some(category) })
+   | PRODUCT(product) => ReasonReact.Update({ ...state, page: "product", current_product: Some(product) })
+   | CATEGORY(category) =>  let products = Data.demo_products;
+                            ReasonReact.Update({ ...state, page: "gallery", current_category: Some(category), products: products })
    }
 
 let component = ReasonReact.reducerComponent("App");

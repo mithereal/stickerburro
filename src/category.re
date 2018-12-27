@@ -28,9 +28,13 @@ let make = (~category:option(Types.category), ~data:Types.products, ~send, _chil
 
     (
         switch (data) {
-        | None => <div className = "blank" ></div>
-        | Some(products) => products |> List.map( product => Js.log(product));
-                  <div className = "blank" ></div>
+        | None => ReasonReact.null
+        | Some(products) => let items = products |> List.map( p =>  <Product data = Some(p) send = send />  );
+                   ReasonReact.array(
+                                    Array.of_list(
+                                    items
+                                    )
+                                    )
         }
 
     )

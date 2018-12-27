@@ -11,15 +11,6 @@ type state =
  | OFFLINE
  | ONLINE(Types.categories)
 
- let c: category = {
-                     id: "1",
-                     name: "stickers",
-                     url: "/stickers",
-                     image: "/stickers.svg",
-                     description: "the stickers menu"
-                     }
-
- let cats: categories = Some([c]);
 
   let reducer = (action, _state) =>
    switch(action) {
@@ -27,7 +18,7 @@ type state =
                      LOADING,
                      (
                      self =>
-                     self.send(SUCCESS(cats))
+                     self.send(SUCCESS(Data.demo_categories))
                      ),
                      )
      | FAIL => ReasonReact.Update(OFFLINE)

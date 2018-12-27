@@ -1,11 +1,5 @@
 open Actions;
 
-let mapOption = (opt, fn) =>
-  switch opt {
-  | None => None
-  | Some(value) => Some(fn(value))
-  };
-
 let component = ReasonReact.statelessComponent("Product");
 
 let make = (~data:option(Types.product), ~send, _children) => {
@@ -16,7 +10,7 @@ let make = (~data:option(Types.product), ~send, _children) => {
 
    (
               switch (data) {
-              | None => <div  className = "product-error">  (ReasonReact.string("No product Selected")) </div>
+              | None => ReasonReact.null
               | Some(product) => <div  className = "product">
                                     <div className = "product-price">(ReasonReact.string(product.price))</div>
                                      <div className = "product-image">(ReasonReact.string(product.image))</div>
