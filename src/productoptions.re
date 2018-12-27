@@ -2,7 +2,7 @@ open Actions;
 
 let component = ReasonReact.statelessComponent("Product-Options");
 
-let make = ( ~product:option(Types.product) , ~send, _children) => {
+let make = ( ~product:option(Types.product) , ~data::option(Types.productoptions) ,~send, _children) => {
   ...component,
   render: _self =>
 

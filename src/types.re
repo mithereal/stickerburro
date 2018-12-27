@@ -42,4 +42,17 @@ type products = option(list(product))
 
 type products_list = list(product)
 
+type quantity = {
+    id: string,
+    price: string
+}
+
 type cart = products
+
+type sizeoptions =  {
+                   id: string,
+                   name: string
+                   quantity: quantity
+                   }
+
+type productsizeoptions = list(sizeoptions)
