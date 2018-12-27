@@ -10,7 +10,7 @@ categories: categories,
 products: products,
 current_category: option(category),
 current_product: option(product),
-cart: cart,
+cart: products,
 currency: option(string),
 token: option(string),
 page: string
@@ -20,7 +20,8 @@ page: string
 
 let reducer = (action, state) =>
 switch(action){
-   | ADDTOCART(p) => ReasonReact.Update({ ...state, page: "cart" })
+   | ADDTOCART(p) => let newcart = None;
+                        ReasonReact.Update({ ...state, page: "cart", cart: newcart})
    | PAGE(page) => ReasonReact.Update({ ...state, page: page })
    | PRODUCT(product) => ReasonReact.Update({ ...state, page: "product", current_product: Some(product) })
    | CATEGORY(category) =>  let products = Data.demo_products;
