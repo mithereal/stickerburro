@@ -1,8 +1,9 @@
 open Actions;
 
-let component = ReasonReact.statelessComponent("Product");
 
-let make = (~data:option(Types.product), ~send, _children) => {
+let component = ReasonReact.statelessComponent("Cart Product");
+
+let make = (~data:option(Types.product_quantity), ~send, _children) => {
   ...component,
   render: _self =>
 
@@ -14,10 +15,9 @@ let make = (~data:option(Types.product), ~send, _children) => {
               | Some(product) => <div className = "product">
                                      <div className = "product-name">(ReasonReact.string(product.name))</div>
                                      <div className = "product-image">(ReasonReact.string(product.image))</div>
-                                     <div className = "product-description">(ReasonReact.string(product.description))</div>
-
-<Productoptions product = Some(product) data = None send = send />
+                                     <div className = "product-quantity">(ReasonReact.string(product.quantity))</div>
                                      </div>
+
               }
 
           )

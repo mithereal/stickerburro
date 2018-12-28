@@ -2,15 +2,16 @@ open Actions;
 
 let component = ReasonReact.statelessComponent("Cart");
 
+let state = { }
 
-let make = (~data:Types.products, ~send , _children) => {
+let make = (~data:Types.cart_products, ~send , _children) => {
   ...component,
   render: _self =>
     <div className = "cart">
      (
                   switch (data) {
                   | None => ReasonReact.null
-                  | Some(products) => let items = products |> List.map( p =>  <Product data = Some(p) send = send />  );
+                  | Some(products) => let items = products |> List.map( p =>  <Cartproduct data = Some(p) send = send />  );
                    ReasonReact.array(
                                      Array.of_list(
                                      items

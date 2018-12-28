@@ -21,6 +21,15 @@ open Types;
                      description: "the stickers menu"
                      }
 
-let demo_products: products = Some([demo_product]);
+                     let demo_product2: product = {
+                     id: "1",
+                     name: "stickers2",
+                     url: "/stickers2",
+                     price: "4.00",
+                     image: "/stickers2.svg",
+                     description: "the stickers2 menu"
+                     }
+
+let demo_products: products = Some([demo_product,demo_product2]);
 
 

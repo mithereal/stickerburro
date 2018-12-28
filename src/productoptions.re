@@ -1,9 +1,21 @@
 open Actions;
 
-let component = ReasonReact.statelessComponent("Product-Options");
+type state = {
+sizes: option(list(Types.sizes))
+};
 
-let make = ( ~product:option(Types.product) , ~data::option(Types.productoptions) ,~send, _children) => {
+
+let reducer = (action, state) =>
+switch(action){
+ | PAGE(page) => ReasonReact.Update({ ...state, sizes: None })
+};
+
+let component = ReasonReact.reducerComponent("Product-Options");
+
+let make = ( ~product:option(Types.product) , ~data:option(Types.productsizeoptions) ,~send, _children) => {
   ...component,
+  initialState: () => { sizes: None },
+  reducer,
   render: _self =>
 
       <div  className = "product-options">
@@ -14,6 +26,7 @@ let make = ( ~product:option(Types.product) , ~data::option(Types.productoptions
                                     <div className = "product-size">
                                     <div className = "product-size-heading">(ReasonReact.string("Select a Size"))</div>
                                     <ul>
+
                                     <li>
                                     (ReasonReact.string("1x1"))
                                     </li>

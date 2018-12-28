@@ -1,11 +1,5 @@
 let component = ReasonReact.statelessComponent("Category");
 
-let mapOption = (opt, fn) =>
-  switch opt {
-  | None => None
-  | Some(value) => Some(fn(value))
-  };
-
 let make = (~category:option(Types.category), ~data:Types.products, ~send, _children) => {
   ...component,
   render: _self =>
@@ -24,22 +18,9 @@ let make = (~category:option(Types.category), ~data:Types.products, ~send, _chil
     </div>
 
 
-    <div className = "products">
 
-    (
-        switch (data) {
-        | None => ReasonReact.null
-        | Some(products) => let items = products |> List.map( p =>  <Product data = Some(p) send = send />  );
-                   ReasonReact.array(
-                                    Array.of_list(
-                                    items
-                                    )
-                                    )
-        }
+    <Products data = data send = send />
 
-    )
-
-    </div>
 
     </div>
 };

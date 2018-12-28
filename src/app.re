@@ -10,7 +10,7 @@ categories: categories,
 products: products,
 current_category: option(category),
 current_product: option(product),
-cart: products,
+cart: cart_products,
 currency: option(string),
 token: option(string),
 page: string

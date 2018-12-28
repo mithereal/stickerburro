@@ -1,6 +1,6 @@
 open Actions;
 
-let component = ReasonReact.statelessComponent("Product");
+let component = ReasonReact.statelessComponent("Product List");
 
 let make = (~data:option(Types.product), ~send, _children) => {
   ...component,
@@ -11,12 +11,12 @@ let make = (~data:option(Types.product), ~send, _children) => {
    (
               switch (data) {
               | None => ReasonReact.null
-              | Some(product) => <div className = "product">
+              | Some(product) => <div className = "product" onClick=(_event => send(PRODUCT(product)))>
                                      <div className = "product-name">(ReasonReact.string(product.name))</div>
                                      <div className = "product-image">(ReasonReact.string(product.image))</div>
                                      <div className = "product-description">(ReasonReact.string(product.description))</div>
 
-<Productoptions product = Some(product) data = None send = send />
+
                                      </div>
               }
 
