@@ -1,7 +1,7 @@
-open Actions;
+open Action;
 
 type state = {
-sizes: option(list(Types.sizes))
+sizes: option(list(Type.sizes))
 };
 
 
@@ -10,9 +10,11 @@ switch(action){
  | PAGE(page) => ReasonReact.Update({ ...state, sizes: None })
 };
 
-let component = ReasonReact.reducerComponent("Product-Options");
 
-let make = ( ~product:option(Types.product) , ~data:option(Types.productsizeoptions) ,~send, _children) => {
+
+let component = ReasonReact.reducerComponent("Options");
+
+let make = ( ~product:option(Type.product) , ~options:option(Type.productsizeoptions) ,~send, _children) => {
   ...component,
   initialState: () => { sizes: None },
   reducer,
@@ -22,7 +24,7 @@ let make = ( ~product:option(Types.product) , ~data:option(Types.productsizeopti
         (
                     switch (product) {
                     | None => ReasonReact.null
-                    | Some(data) => <div className = "product-options">
+                    | Some(options) => <div className = "product-options">
                                     <div className = "product-size">
                                     <div className = "product-size-heading">(ReasonReact.string("Select a Size"))</div>
                                     <ul>
@@ -36,13 +38,17 @@ let make = ( ~product:option(Types.product) , ~data:option(Types.productsizeopti
                                     <div className = "product-quantity-heading">(ReasonReact.string("Select a Quantity"))</div>
                                     <ul>
                                     <li>
-                                    (ReasonReact.string("50"))
+
                                     </li>
                                     </ul>
                                     </div>
+
                                         <div className = "buttons">
+
+                                        <button id = "back"   onClick=(_event => send(PAGE("gallery")))> (ReasonReact.string("Back")) </button>
                                         <button id = "add_to_cart"
-                                        onClick=(_event => send(ADDTOCART(Some(data))))> (ReasonReact.string("Add To Cart"))
+                                        onClick=(_event => send(ADDTOCART(product)))>
+                                        (ReasonReact.string("Add To Cart"))
                                         </button>
                                         </div>
                                         <div className="next-option" >

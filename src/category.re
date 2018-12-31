@@ -1,6 +1,6 @@
 let component = ReasonReact.statelessComponent("Category");
 
-let make = (~category:option(Types.category), ~data:Types.products, ~send, _children) => {
+let make = (~category:option(Type.category), ~data:Type.products, ~send, _children) => {
   ...component,
   render: _self =>
     <div className = "category">

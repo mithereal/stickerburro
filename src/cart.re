@@ -1,10 +1,10 @@
-open Actions;
+open Action;
 
 let component = ReasonReact.statelessComponent("Cart");
 
 let state = { }
 
-let make = (~data:Types.cart_products, ~send , _children) => {
+let make = (~data:Type.cart_products, ~send , _children) => {
   ...component,
   render: _self =>
     <div className = "cart">
@@ -20,7 +20,7 @@ let make = (~data:Types.cart_products, ~send , _children) => {
                   }
       )
                     <div className = "buttons">
-                    <button id = "back"   onClick=(_event => send(PAGE("gallery")))> (ReasonReact.string("Back")) </button>
+                    <button id = "back"   onClick=(_event => send(PAGE("product")))> (ReasonReact.string("Back")) </button>
                     <button id = "checkout"  onClick=(_event => send(PAGE("checkout")))> (ReasonReact.string("Checkout")) </button>
                     </div>
     </div>

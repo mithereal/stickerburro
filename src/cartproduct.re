@@ -1,9 +1,9 @@
-open Actions;
+open Action;
 
 
 let component = ReasonReact.statelessComponent("Cart Product");
 
-let make = (~data:option(Types.product_quantity), ~send, _children) => {
+let make = (~data:option(Type.product_quantity), ~send, _children) => {
   ...component,
   render: _self =>
 

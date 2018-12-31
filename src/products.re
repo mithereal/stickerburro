@@ -1,21 +1,21 @@
 let component = ReasonReact.statelessComponent("Products");
 
-let make = ( ~data:Types.products, ~send, _children) => {
+let make = ( ~data:Type.products, ~send, _children) => {
   ...component,
-  render: _self => <div className = "products">
-
-    (
-        switch (data) {
+  render: _self =>
+   switch (data) {
         | None => ReasonReact.null
-        | Some(products) => let items = products |> List.map( p =>  <Productlist data = Some(p) send = send />  );
+        | Some(products) => let items = products |> List.map( p =>  <Gallery data = Some(p) send = send />  );
+
+        <div className = "products">
+        (
                    ReasonReact.array(
                                     Array.of_list(
                                     items
                                     )
                                     )
+                                    )
+         </div>
         }
 
-    )
-
-    </div>
 };

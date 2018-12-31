@@ -1,19 +1,23 @@
 
 let component = ReasonReact.statelessComponent("Reviews");
 
-let make = (~data:option(Types.reviews), _children) => {
+let make = (~data:option(Type.reviews), _children) => {
   ...component,
   render: _self =>
-    <div className = "reviews">
-
-        (
             switch (data) {
-            | None => <div className = "blank" ></div>
-            | Some(reviews) => reviews |> List.map( review => Js.log(review));
-                      <div className = "blank" ></div>
+            | None => ReasonReact.null
+            | Some(reviews) => let items = reviews |> List.map( review => <Review data = review />);
+
+               <div className = "reviews">
+                    (
+                               ReasonReact.array(
+                                                Array.of_list(
+                                                items
+                                                )
+                                                )
+                                                )
+                     </div>
+
             }
 
-        )
-
-    </div>
 };

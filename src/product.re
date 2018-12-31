@@ -1,27 +1,21 @@
-open Actions;
+open Action;
 
 let component = ReasonReact.statelessComponent("Product");
 
-let make = (~data:option(Types.product), ~send, _children) => {
+let make = (~data:option(Type.product), ~send, _children) => {
   ...component,
   render: _self =>
-
-      <div  className = "product-page">
-
-   (
-              switch (data) {
+         switch (data) {
               | None => ReasonReact.null
-              | Some(product) => <div className = "product">
+              | Some(product) => <div  className = "product-page">
+                                <div className = "product-profile">
                                      <div className = "product-name">(ReasonReact.string(product.name))</div>
                                      <div className = "product-image">(ReasonReact.string(product.image))</div>
                                      <div className = "product-description">(ReasonReact.string(product.description))</div>
 
-<Productoptions product = Some(product) data = None send = send />
+<Options product = Some(product) options = None send = send />
+                                     </div>
+
                                      </div>
               }
-
-          )
-
-
-    </div>
 };

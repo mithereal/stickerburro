@@ -7,7 +7,7 @@ external register_service_worker : unit => unit = "register";
 external unregister_service_worker : unit => unit = "unregister";
 
 ReactDOMRe.renderToElementWithId(
-  <Loader  />,
+  <App />,
   "root",
 );
 
