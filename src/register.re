@@ -4,6 +4,7 @@ let make = (_children) => {
   ...component,
   render: _self =>
     <div className = "register">
-
+     <div className = "textblock" >
+     </div>
     </div>
 };

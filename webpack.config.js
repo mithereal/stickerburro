@@ -30,7 +30,7 @@ module.exports = {
             algorithm: 'brotli',
             test: /\.(js|css|html|svg)$/,
             threshold: 10240,
-            minRatio: 0.8
+            minRatio: 0.8,
             quality: 11
         }),
         new BrotliGzipPlugin({
