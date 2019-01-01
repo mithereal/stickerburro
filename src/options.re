@@ -47,7 +47,7 @@ let make = ( ~product:option(Type.product) , ~options:option(Type.productsizeopt
 
                                         <button id = "back"   onClick=(_event => send(PAGE("gallery")))> (ReasonReact.string("Back")) </button>
                                         <button id = "add_to_cart"
-                                        onClick=(_event => send(ADDTOCART(product)))>
+                                       >
                                         (ReasonReact.string("Add To Cart"))
                                         </button>
                                         </div>
