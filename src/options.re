@@ -2,7 +2,9 @@ open Action;
 
 type state = {
 options: option(list(Type.product_option)),
-selected: option(Type.product_option)
+values: option(list(Type.product_option)),
+selected_option: option(Type.product_option)
+selected_value: option(Type.product_option)
 };
 
 
@@ -10,7 +12,7 @@ selected: option(Type.product_option)
 let reducer = (action, state) =>
 switch(action){
  | PAGE(page) => ReasonReact.Update({ ...state, options: None})
- | SELECTOPTION(product_option) => ReasonReact.Update({ ...state, options: None, selected: Some(product_option)})
+ | SELECTOPTION(product_option) => ReasonReact.Update({ ...state, options: None, selected_option: Some(product_option)})
 };
 
 
@@ -19,7 +21,7 @@ let component = ReasonReact.reducerComponent("Options");
 
 let make = ( ~product:option(Type.product) , ~options:option(Type.product_options_list) ,~send, _children) => {
   ...component,
-  initialState: () => { options: None, selected: None  },
+  initialState: () => { options: None, selected_option: None  },
   reducer,
   render: _self =>
 
