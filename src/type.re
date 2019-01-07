@@ -17,7 +17,7 @@ id: string,
 name: string,
 price: string,
 image: string,
-quantity: string,
+quantity: int,
 size: string
 }
 
@@ -44,7 +44,7 @@ type product_option = {
 id: string,
 name: string,
 price: string,
-quantity: string
+quantity: int
 }
 
 type reviews = list(review)
