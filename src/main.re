@@ -8,7 +8,7 @@ categories: categories,
 products: products,
 current_category: option(category),
 current_product: option(product),
-cart: cart_products,
+cart: cart,
 currency: option(string),
 token: option(string),
 page: string
@@ -18,7 +18,7 @@ page: string
 
 let reducer = (action, state) =>
 switch(action){
-   | ADDTOCART(p,o,s) => let newcart = None;
+   | ADDTOCART(product, quantity, size) => let newcart = None;
                         ReasonReact.Update({ ...state, page: "cart", cart: newcart})
    | PAGE(page) => ReasonReact.Update({ ...state, page: page })
    | PRODUCT(product) => ReasonReact.Update({ ...state, page: "product", current_product: Some(product) })

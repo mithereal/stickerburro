@@ -4,7 +4,7 @@ let component = ReasonReact.statelessComponent("Cart");
 
 let state = { }
 
-let make = (~data:Type.cart_products, ~send , _children) => {
+let make = (~data:Type.cart, ~send , _children) => {
   ...component,
   render: _self =>
     <div className = "cart">

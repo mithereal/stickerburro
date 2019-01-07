@@ -21,9 +21,6 @@ quantity: string,
 size: string
 }
 
-type cart_products = option(list(product_quantity))
-
-
 type product = {
 id: string,
 name: string,
@@ -43,35 +40,28 @@ id: string,
 name: string
 }
 
+type product_option = {
+id: string,
+name: string,
+price: string,
+quantity: string
+}
+
 type reviews = list(review)
 
 type menu = list(item)
 
 type categories = option(list(category))
+
 type categories_list = list(category)
 
 type products = option(list(product))
 
 type products_list = list(product)
 
-type quantity = {
-    id: string,
-    price: string
-}
+type product_options = option(list(product_option))
 
-type cart = products
+type product_options_list = list(product_option)
 
-type sizeoptions =  {
-                   id: string,
-                   name: string,
-                   quantity: quantity
-                   }
+type cart = option(list(product_quantity))
 
-type productsizeoptions = list(sizeoptions)
-
-type sizes = {
-name: string,
-size: string,
-quantity: string,
-price: string
-};
