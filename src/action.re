@@ -5,4 +5,4 @@ type action =
  | CATEGORY(category)
  | PRODUCT(product)
  | PAGE(string)
- | ADDTOCART(product, string, string)
+ | ADDTOCART(product, option(list(product_option)), string)
