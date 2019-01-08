@@ -17,8 +17,15 @@ id: string,
 name: string,
 price: string,
 image: string,
-quantity: int,
+quantity: string,
 size: string
+}
+
+type product_option = {
+id: string,
+name: string,
+price: string,
+quantity: string
 }
 
 type product = {
@@ -27,7 +34,8 @@ name: string,
 price: string,
 url: string,
 image: string,
-description: string
+description: string,
+options: option(list(product_option))
 };
 
 type item = {
@@ -40,11 +48,16 @@ id: string,
 name: string
 }
 
-type product_option = {
+
+
+type product_with_options = {
 id: string,
 name: string,
 price: string,
-quantity: int
+url: string,
+image: string,
+description: string,
+options: option(list(product_option))
 }
 
 type reviews = list(review)

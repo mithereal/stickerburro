@@ -18,10 +18,11 @@ page: string
 
 let reducer = (action, state) =>
 switch(action){
-   | ADDTOCART(product, quantity, size) => let newcart = None;
+   | ADDTOCART(product, option) => let newcart = None;
                         ReasonReact.Update({ ...state, page: "cart", cart: newcart})
    | PAGE(page) => ReasonReact.Update({ ...state, page: page })
-   | PRODUCT(product) => ReasonReact.Update({ ...state, page: "product", current_product: Some(product) })
+   | PRODUCT(product) => let product_with_options = product;
+   ReasonReact.Update({ ...state, page: "product", current_product: Some(product) })
    | CATEGORY(category) =>  let products = Data.demo_products;
                             ReasonReact.Update({ ...state, page: "gallery", current_category: Some(category), products: products })
    }

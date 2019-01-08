@@ -13,7 +13,7 @@ let make = (~data:option(Type.product), ~send, _children) => {
                                      <div className = "product-image">(ReasonReact.string(product.image))</div>
                                      <div className = "product-description">(ReasonReact.string(product.description))</div>
 
-<Options product = Some(product) options = None send = send />
+<Options product = Some(product) options = product.options send = send />
                                      </div>
 
                                      </div>
