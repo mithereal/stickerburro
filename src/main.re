@@ -1,6 +1,21 @@
 open Type;
 open Action;
 
+open Belt;
+
+[@bs.val] external unsafeJsonParse: string => 'a = "JSON.parse";
+
+let localStorageNamespace = "stickerburro";
+
+let saveLocally = cart =>
+  switch (Js.Json.stringifyAny(cart)) {
+  | None => ()
+  | Some(cart) =>
+    Dom.Storage.(
+      localStorage |> setItem(localStorageNamespace, cart)
+    )
+  };
+
 type state =  {
 status: string,
 account: option(account),
@@ -21,6 +36,8 @@ switch(action){
    | ADDTOCART(product, option) => let newcart = None;
                         ReasonReact.Update({ ...state, page: "cart", cart: newcart})
    | PAGE(page) => ReasonReact.Update({ ...state, page: page })
+   | SAVE() => saveLocally(state.cart);
+                ReasonReact.Update({ ...state, page: page })
    | PRODUCT(product) => let product_with_options = product;
    ReasonReact.Update({ ...state, page: "product", current_product: Some(product) })
    | CATEGORY(category) =>  let products = Data.demo_products;
@@ -29,9 +46,9 @@ switch(action){
 
 let component = ReasonReact.reducerComponent("Main");
 
-let make = (~status, ~categories:Type.categories, _children) => {
+let make = (~status, ~categories:Type.categories, ~cart: Type.cart, _children) => {
   ...component,
-  initialState: () => { status: status, account: None, categories: categories, products: None, current_category: None, current_product: None, cart: None, token: None, page: "index", currency: Some("USD") },
+  initialState: () => { status: status, account: None, categories: categories, products: None, current_category: None, current_product: None, cart: cart, token: None, page: "index", currency: Some("USD") },
   reducer,
   render: self =>
     <div className="app">

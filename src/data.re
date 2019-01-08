@@ -34,26 +34,26 @@ open Type;
 
 let demo_option: product_option = {
 id: "1",
-name: "string",
+name: "2x2",
 price: "4",
 quantity: "3"
 }
 
 let demo_option2: product_option = {
 id: "2",
-name: "string",
+name: "4x4",
 price: "3",
 quantity: "4"
 }
 let demo_option3: product_option = {
 id: "3",
-name: "string",
+name: "5x5",
 price: "2",
 quantity: "5"
 }
 let demo_option4: product_option = {
 id: "4",
-name: "string",
+name: "6x6",
 price: "1",
 quantity: "5"
 }

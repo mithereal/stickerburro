@@ -7,12 +7,16 @@ selected_option: option(Type.product_option),
 selected_value: option(Type.product_option)
 };
 
+let remove_duplicate_options = (options, field) => {
+Belt.Array.keepMap(options, fun (x) => x.field);
+}
 
 
 let reducer = (action, state) =>
 switch(action){
  | PAGE(page) => ReasonReact.Update({ ...state, options: None})
- | SELECTOPTION(product_option) => ReasonReact.Update({ ...state, values: None, selected_value: None, selected_option: Some(product_option)})
+ | SELECTOPTION(product_option) => Js.log(product_option);
+ ReasonReact.Update({ ...state, values: None, selected_value: None, selected_option: Some(product_option)})
 
 };
 
@@ -24,7 +28,7 @@ let make = ( ~product:option(Type.product) , ~options:option(Type.product_option
   ...component,
   initialState: () => { options: options, selected_option: None, values: None, selected_value: None  },
   reducer,
-  render: _self =>
+  render: self =>
 
       <>
         (
@@ -41,53 +45,47 @@ let make = ( ~product:option(Type.product) , ~options:option(Type.product_option
                                                                                                                                       (ReasonReact.string("Add To Cart"))
                                                                                                                                       </button>
                                                                                                                                       </div>
-                                        | Some(data) =>
+                                        | Some(option) =>
+                                        let items = option |> List.map( p =>  <Option data = Some(p) send = self.send />  );
                                             <div className = "product-options">
                                                                 <div className = "product-options-heading">(ReasonReact.string("Select a Size"))</div>
-                                                                                <div className = "product-option">
 
-                                                                                <ul>
+                                                                <ul>
 
-                                                                                <li>
-                                                                                <button  onClick=(_event => send(PAGE("gallery"))) >
-                                                                                (ReasonReact.string("1x1"))
-                                                                                </button>
-                                                                                </li><li>
-                                                                                <button >
-                                                                                (ReasonReact.string("2x2"))
-                                                                                </button>
-                                                                                </li><li>
-                                                                                <button >
-                                                                                (ReasonReact.string("4x4"))
-                                                                                </button>
-                                                                                </li><li>
-                                                                                <button >
-                                                                                (ReasonReact.string("6x6"))
-                                                                                </button>
-                                                                                </li>
-                                                                                </ul>
-                                                                                </div>
+                                                                (
+
+                                                                ReasonReact.array(
+                                                                                 Array.of_list(
+                                                                                 items
+                                                                                 )
+                                                                                 )
+
+                                                                )
+                                                                </ul>
+
+
+
+
+
+
 
                                                                                 <div className = "product-option-values">
                                                                                 <div className = "product-option-values-heading">(ReasonReact.string("Select a Quantity"))</div>
                                                                                 <ul>
-                                                                                <li>
-                                                                                (ReasonReact.string("1"))
-                                                                                </li><li>
-                                                                                (ReasonReact.string("5"))
-                                                                                </li><li>
-                                                                                (ReasonReact.string("10"))
-                                                                                </li><li>
-                                                                                (ReasonReact.string("50"))
-                                                                                </li><li>
-                                                                                (ReasonReact.string("100"))
-                                                                                </li><li>
-                                                                                (ReasonReact.string("1000"))
-                                                                                </li><li>
-                                                                                (ReasonReact.string("5000"))
-                                                                                </li><li>
-                                                                                (ReasonReact.string("10000"))
-                                                                                </li>
+
+                                                                                (
+                                                                                                    switch (product) {
+                                                                                                    | None => ReasonReact.null
+                                                                                                    | Some(data) =>
+                                                                                                    (
+                                                                                                     switch (options) {
+                                                                                                                        | None => ReasonReact.null
+                                                                                                                        | Some(data) => ReasonReact.null
+                                                                                                                        }
+                                                                                                      )
+                                                                                                      }
+                                                                                    )
+
                                                                                 </ul>
                                                                                 </div>
 

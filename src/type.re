@@ -76,5 +76,5 @@ type product_options = option(list(product_option))
 
 type product_options_list = list(product_option)
 
-type cart = option(list(product_quantity))
+type cart = option(list(product))
 
