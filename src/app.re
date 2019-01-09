@@ -33,7 +33,8 @@ type state =
      | SUCCESS(categories) =>  let cart =
                                       switch (Dom.Storage.(localStorage |> getItem(localStorageNamespace))) {
                                       | None => None
-                                      | Some(data) =>  Some(unsafeJsonParse(data));
+                                      | Some(data) =>  let json = unsafeJsonParse(data);
+                                                            Some(json)
                                       };
                                       ReasonReact.Update(ONLINE(categories,cart))
    };
