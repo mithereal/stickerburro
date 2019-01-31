@@ -6,3 +6,4 @@ type action =
  | PRODUCT(product)
  | PAGE(string)
  | ADDTOCART(product, option(list(product_option)))
+ | SAVE

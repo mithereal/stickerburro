@@ -10,9 +10,9 @@ let localStorageNamespace = "stickerburro";
 let saveLocally = cart =>
   switch (Js.Json.stringifyAny(cart)) {
   | None => ()
-  | Some(cart) =>
+  | Some(data) =>
     Dom.Storage.(
-      localStorage |> setItem(localStorageNamespace, cart)
+      localStorage |> setItem(localStorageNamespace, data)
     )
   };
 
@@ -33,11 +33,15 @@ page: string
 
 let reducer = (action, state) =>
 switch(action){
-   | ADDTOCART(product, option) => let newcart = None;
+   | ADDTOCART(product, options) =>  let newcart = switch(state.cart){
+   | None => None
+   |Some(x) => Some([product]);
+   }
+
                         ReasonReact.Update({ ...state, page: "cart", cart: newcart})
    | PAGE(page) => ReasonReact.Update({ ...state, page: page })
-   | SAVE() => saveLocally(state.cart);
-                ReasonReact.Update({ ...state, page: page })
+   | SAVE => saveLocally(state.cart);
+                ReasonReact.Update({ ...state, page: state.page })
    | PRODUCT(product) => let product_with_options = product;
    ReasonReact.Update({ ...state, page: "product", current_product: Some(product) })
    | CATEGORY(category) =>  let products = Data.demo_products;

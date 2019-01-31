@@ -8,7 +8,7 @@ selected_value: option(Type.product_option)
 };
 
 let remove_duplicate_options = (options, field) => {
-Belt.Array.keepMap(options, fun (x) => x.field);
+Belt.Array.keepMap(options, fun (x) => x[field])
 }
 
 
@@ -64,11 +64,6 @@ let make = ( ~product:option(Type.product) , ~options:option(Type.product_option
                                                                 </ul>
 
 
-
-
-
-
-
                                                                                 <div className = "product-option-values">
                                                                                 <div className = "product-option-values-heading">(ReasonReact.string("Select a Quantity"))</div>
                                                                                 <ul>
@@ -93,7 +88,7 @@ let make = ( ~product:option(Type.product) , ~options:option(Type.product_option
 
                                                                                     <button id = "back"   onClick=(_event => send(PAGE("gallery")))> (ReasonReact.string("Back")) </button>
                                                                                     <button id = "add_to_cart"
-                                                                                      onClick=(_event => send(PAGE("gallery")))>
+                                                                                      onClick=(_event => send(ADDTOCART(data, None)))>
                                                                                     (ReasonReact.string("Add To Cart"))
                                                                                     </button>
                                                                                     </div>
