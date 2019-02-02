@@ -1,3 +1,5 @@
+[%bs.raw {|require('./app.css')|}];
+
 open Type;
 
 open Belt;
@@ -14,16 +16,9 @@ type action =
 type state =
  | ERROR(string)
  | LOADING
- | OFFLINE(cart)
+ | OFFLINE
  | ONLINE(categories, cart)
 
- let localCart = () => {
- switch (Dom.Storage.(localStorage |> getItem(localStorageNamespace))) {
-                                                      | None => None
-                                                      | Some(data) =>  let json = unsafeJsonParse(data);
-                                                                            Some(json)
-                                                      };
- }
 
   let reducer = (action, _state) =>
    switch(action) {
@@ -34,8 +29,13 @@ type state =
                      self.send(SUCCESS(Data.demo_categories))
                      ),
                      )
-     | FAIL => ReasonReact.Update(OFFLINE(localCart()))
-     | SUCCESS(categories) =>  ReasonReact.Update(ONLINE(categories, localCart()))
+     | FAIL => ReasonReact.Update(OFFLINE)
+     | SUCCESS(categories) =>  let cart =
+                                      switch (Dom.Storage.(localStorage |> getItem(localStorageNamespace))) {
+                                      | None => None
+                                      | Some(data) =>  Some(unsafeJsonParse(data));
+                                      };
+                                      ReasonReact.Update(ONLINE(categories,cart))
    };
 
 let component = ReasonReact.reducerComponent("App");
@@ -52,7 +52,7 @@ let make = (_children) => {
     | ERROR(err) => <div className = "notifications error"> ( ReasonReact.string("An Error Has Occurred") ) </div>
     | LOADING => <div className = "notifications loading"> ( ReasonReact.string("Please Wait") ) </div>
     | ONLINE(categories, cart) => <Main status = "online" categories = categories cart = cart />
-    | OFFLINE(cart) => <Main status = "offline" categories = None cart = cart />
+    | OFFLINE => <Main status = "offline" categories = None />
     }
 
 };
