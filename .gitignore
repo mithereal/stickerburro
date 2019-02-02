@@ -27,7 +27,7 @@ node_modules/
 tmp/
 
 #  output folder.
-public/
+
 lib/*
 
 # Ignore asset build reasonml
