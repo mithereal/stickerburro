@@ -7,3 +7,5 @@ stickermule has over 130 requests to load a single page, this is stupid so this 
 * run npm install
 * run npm start 
 * goto http://localhost:3000/
+
+* or open public/index.html with your web browser
