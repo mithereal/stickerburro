@@ -1,5 +1,3 @@
-[%bs.raw {|require('./app.css')|}];
-
 open Type;
 
 open Belt;

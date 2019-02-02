@@ -1,6 +1,3 @@
-[%bs.raw {|require('./mini.min.css')|}];
-[%bs.raw {|require('./index.css')|}];
-
 [@bs.module "./serviceWorker"]
 external register_service_worker : unit => unit = "register";
 [@bs.module "./serviceWorker"]
