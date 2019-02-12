@@ -52,7 +52,7 @@ let make = (_children) => {
     | ERROR(err) => <div className = "notifications error"> ( ReasonReact.string("An Error Has Occurred") ) </div>
     | LOADING => <div className = "notifications loading"> ( ReasonReact.string("Please Wait") ) </div>
     | ONLINE(categories, cart) => <Main status = "online" categories = categories cart = cart />
-    | OFFLINE => <Main status = "offline" categories = None />
+    | OFFLINE => <Main status = "offline" categories = None cart = None />
     }
 
 };

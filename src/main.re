@@ -36,8 +36,8 @@ switch(action){
    | ADDTOCART(product, option) => let newcart = None;
                         ReasonReact.Update({ ...state, page: "cart", cart: newcart})
    | PAGE(page) => ReasonReact.Update({ ...state, page: page })
-   | SAVE() => saveLocally(state.cart);
-                ReasonReact.Update({ ...state, page: page })
+   | SAVE => saveLocally(state.cart);
+                ReasonReact.Update({ ...state, cart: state.cart })
    | PRODUCT(product) => let product_with_options = product;
    ReasonReact.Update({ ...state, page: "product", current_product: Some(product) })
    | CATEGORY(category) =>  let products = Data.demo_products;

@@ -8,7 +8,7 @@ selected_value: option(Type.product_option)
 };
 
 let remove_duplicate_options = (options, field) => {
-Belt.Array.keepMap(options, fun (x) => x.field);
+Belt.Array.keepMap(options, fun (x) => x);
 }
 
 

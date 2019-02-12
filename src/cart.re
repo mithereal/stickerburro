@@ -11,7 +11,7 @@ let make = (~data:Type.cart, ~send , _children) => {
      (
                   switch (data) {
                   | None => ReasonReact.null
-                  | Some(products) => let items = products |> List.map( p =>  <Cartproduct data = Some(p) send = send />  );
+                  | Some(products) => let items = products |> List.map( p =>  <Cartproduct  send = send />  );
                    ReasonReact.array(
                                      Array.of_list(
                                      items
