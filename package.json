@@ -7,14 +7,14 @@
     "bs-css": "^7.1.0",
     "bs-fetch": "^0.3.0",
     "bs-webapi": "^0.12.2",
-    "css-loader": "^1.0.0",
-    "file-loader": "^1.1.11",
-    "mini.css": "^3.0.1",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "reason-scripts": "1.0.0",
     "style-loader": "^0.22.1",
-    "url-loader": "^1.1.0"
+    "url-loader": "^1.1.0",
+    "css-loader": "^1.0.0",
+    "file-loader": "^1.1.11",
+    "mini.css": "^3.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
